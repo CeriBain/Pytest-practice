@@ -12,6 +12,10 @@ def test_if_not_correct_length_equals_error():
         password.check("shr")
     assert str(error.value) == "Invalid password, must be 8+ characters."
     
-
+def test_empty_password_gives_error():
+    password = PasswordChecker()
+    with pytest.raises(Exception) as e:
+        password.check("")
+    assert str(e.value) == "Invalid password, must be 8+ characters."
 
 
